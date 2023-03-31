@@ -1,0 +1,54 @@
+<html>
+	<head>
+        <script src="../js/jquery.js"></script>
+	        <link href="../css/css.css" rel="stylesheet" type="text/css" />  
+		<meta charset="utf-8">
+		    </head>
+		        <body>
+				<div id="box">
+					<p id="nav">
+						<a id="juqing" href="juqing.html?page=juqing#">剧情</a> 
+						<a id="donghua"  href="donghua.html?page=donghua">动画</a> 
+						<a id="kehuan" href="kehuan.html?page=kehuan">科幻</a>
+						<a id="dongzuo" href="dongzuo.html?page=dongzuo#">动作</a> 
+						<a id="xuanyi" href="xuanyi.html?page=xuanyi#">悬疑</a></p>
+																	                <p id="bread">
+																			<a href="./index.html?page=index">首页</a> >  
+																					                
+																			<strong id="currentPage">科幻</strong> 
+																							            </p>
+																								            </div>
+																									              
+																									            <script>
+																											                function GetRequest() {
+																														                var url = location.search; //èŽ·å–urlä¸­"?"ç¬¦åŽçš„å­—ä¸²
+																														                var theRequest = new Object();
+																														                if (url.indexOf("?") != -1) {
+																																	                    var str = url.substr(1);
+																																	                    strs = str.split("&");
+																																	                    for(var i = 0; i < strs.length; i ++) {
+																																				                            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+																																				                        }
+																																	                }
+																														                return theRequest;
+																														            } 
+
+            $(document).ready(function () {
+		                    var Request = new Object();
+		                    Request = GetRequest();
+		                    var page;
+		                    page = Request['page'];
+
+		    arr = {index:"首页",juqing:"剧情", kehuan:"科幻", donghua:"动画", xuanyi:"悬疑",dongzuo:"动作"};
+	if(page=="juqing"){document.getElementById('juqing').innerHTML = "<strong>"+"剧情"+"</strong>" ;};
+        if(page=="donghua"){document.getElementById('donghua').innerHTML = "<strong>"+"动画"+"</strong>" ;};
+        if(page=="kehuan"){document.getElementById('kehuan').innerHTML = "<strong>"+"科幻"+ "</strong>";};
+        if(page=="dongzuo"){document.getElementById('dongzuo').innerHTML = "<strong>"+"动作"+"</strong>" ;};
+        if(page=="xuanyi"){document.getElementById('xuanyi').innerHTML = "<strong>"+"悬疑"+"</strong>" ;};
+        document.getElementById('currentPage').innerHTML = arr[page] ;
+		                });
+
+	
+        </script>
+	    </body>
+	    </html>
